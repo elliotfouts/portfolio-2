@@ -1,3 +1,158 @@
+/*=======================================
+*            GLOBAL ELEMENTS            *
+=======================================*/
+
+body {
+    overflow: visible;
+    overflow-x: hidden;
+    background: #13293D;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/*=================================
+*            CONTAINER            *
+=================================*/
+
 .container {
     background: #13293D;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    font-size: 10rem;
+    text-transform: uppercase;
+    align-self: flex-end;
+    text-align: right;
+    padding: 1rem;
+    margin-bottom: 8rem;
+    height: 400px;
+    width: 100%;
+}
+
+#bio {
+    font-size: 3rem;
+    align-self: flex-start;
+    padding: 3rem;
+    color: #3E92CC;
+    border: #F5F3F5 1px solid;
+    margin-bottom: 15rem;
+    line-height: 4rem;
+}
+
+.subtitle {
+    font-size: 5rem;
+    position: relative;
+}
+
+.subtitle::before,
+.subtitle::after {
+    content: '';
+    background: #F5F3F5;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    position: absolute;
+}
+
+.subtitle::before {
+    left: -60%;
+}
+
+.subtitle::after {
+    right: -60%;
+}
+
+/*==================================
+*            ANIMATIONS            *
+==================================*/
+
+.appear {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+/*=====================================
+*            MEDIA QUERIES            *
+=====================================*/
+
+@media (max-width: 1000px) {
+    .subtitle {
+        font-size: 4rem;
+    }
+}
+@media (max-width: 900px) {
+    .title {
+        font-size: 8rem;
+    }
+
+    #bio {
+        font-size: 2.4rem;
+        margin-bottom: 10rem;
+    }
+    .subtitle {
+        font-size: 3rem;
+    }
+}
+@media (max-width: 700px) {
+    .title {
+        font-size: 7rem;
+    }
+
+    #bio {
+        font-size: 2rem;
+        margin-bottom: 10rem;
+        padding: 2rem;
+    }
+    .subtitle {
+        font-size: 2.5rem;
+    }
+}
+@media (max-width: 600px) {
+    .title {
+        font-size: 6rem;
+    }
+
+    #bio {
+        font-size: 2rem;
+        margin-bottom: 10rem;
+        padding: 2rem;
+    }
+    .subtitle {
+        font-size: 2.5rem;
+    }
+}
+@media (max-width: 500px) {
+    .title {
+        margin-top: 3rem;
+        margin-right: 3rem;
+        font-size: 4rem;
+    }
+
+    #bio {
+        font-size: 1.5rem;
+        margin-bottom: 10rem;
+        padding: 1rem;
+    }
+    .subtitle {
+        font-size: 1.5rem;
+    }
+}
+@media (max-width: 400px) {
+    .title {
+        font-size: 3rem;
+    }
+
+    #bio {
+        font-size: 1rem;
+        margin-bottom: 10rem;
+        padding: 1rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
 }

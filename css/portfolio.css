@@ -26,6 +26,7 @@ body {
     padding: 6rem 5rem;
     grid-gap: 3rem;
     z-index: 1;
+    grid-auto-flow: dense;
 }
 
 .portfolio-item {
@@ -33,10 +34,15 @@ body {
     transition: all 500ms;
     opacity: 0;
     transform: translateY(20px);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5)
 }
+
 
 .portfolio-item:hover {
     transform: scale(1.1);
+}
+.portfolio-item.active:hover {
+    transform: scale(1);
 }
 .portfolio-item:nth-child(1) {
     background: url('../imgs/portfolio1.jpg');
@@ -55,6 +61,47 @@ body {
     background-size: cover;
 }
 
+.portfolio-item.active {
+    grid-column: span 2;
+    grid-row: span 2;
+    background: #111;
+    padding: 3rem;
+}
+
+.card-title {
+    font-size: 4rem;
+    margin-bottom: 3rem;
+}
+
+.card-subtitle {
+    font-size: 2rem;
+}
+
+.card-description {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.card-link-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.card-link {
+    padding: 1rem 2rem;
+    border: 1px solid #F5F3F5;
+    transition: all 300ms;
+}
+
+.card-link:hover {
+    background: #F5F3F5;
+    color: #111;
+    cursor: pointer;
+}
+
+
 /*==================================
 *            ANIMATIONS            *
 ==================================*/
@@ -62,4 +109,33 @@ body {
 .appear {
     opacity: 1;
     transform: translateX(0) translateY(0);
+}
+
+/*=====================================
+*            MEDIA QUERIES            *
+=====================================*/
+
+@media (max-width: 1200px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(5, 300px);
+    }
+}
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(9, 300px);
+    }
+}
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(9, 200px);
+    }
+}
+@media (max-width: 500px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(9, 150px);
+    }
 }

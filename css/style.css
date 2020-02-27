@@ -29,13 +29,14 @@ a {
     position: relative;
     z-index: 0;
     background: #302B27;
-    display: flex;
-    align-items: center;
 }
 
 #title-container {
+    position: absolute;
     padding: 2rem;
     width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #title {
@@ -58,8 +59,8 @@ a {
 
 #subtitle {
     font-size: 3rem;
-    text-align: center;
-
+    text-align: left;
+    height: 40px;
 }
 
 
@@ -67,7 +68,7 @@ a {
 *            MENU            *
 ============================*/
 menu {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
@@ -249,16 +250,25 @@ menu.hidden {
     }
 }
 @media (max-width: 600px) {
+    .menu-title {
+        font-size: 5rem;
+    }
     #title {
         font-size: 4rem;
     }
 }
 @media (max-width: 500px) {
+    .menu-title {
+        font-size: 4rem;
+    }
     #title {
         font-size: 3rem;
     }
 }
 @media (max-width: 400px) {
+    .menu-title {
+        font-size: 3rem;
+    }
     #title {
         font-size: 2.5rem;
     }
