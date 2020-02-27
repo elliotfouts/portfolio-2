@@ -37,6 +37,12 @@ hamburgerIcon.addEventListener("click", function(){
     }
 })
 
+// appearing elements 
+function initELements () {
+    hamburgerIcon.classList.add("appear");
+}
+
+setTimeout(initELements, 100);
 
 // menu transition animation 
 var htmlLinkArray = ["about.html", "resume.pdf", "portfolio.html", "contact.html"]
@@ -58,3 +64,5 @@ menuElement.addEventListener("click", function(target) {
 function menuLink(i) {
     console.log("hello")
 }
+
+

@@ -1,7 +1,65 @@
+/*=======================================
+*            GLOBAL ELEMENTS            *
+=======================================*/
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    overflow: visible;
+    overflow-x: hidden;
+    background: #2A628F;
+}
+
 /*=================================
 *            CONTAINER            *
 =================================*/
 .container {
     background: #2A628F;
-    do
+    height: 150vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, 300px);
+    padding: 6rem 5rem;
+    grid-gap: 3rem;
+    z-index: 1;
+}
+
+.portfolio-item {
+    height: 100%;
+    transition: all 500ms;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.portfolio-item:hover {
+    transform: scale(1.1);
+}
+.portfolio-item:nth-child(1) {
+    background: url('../imgs/portfolio1.jpg');
+    background-size: cover;
+}
+.portfolio-item:nth-child(2) {
+    background: url('../imgs/portfolio2.jpg');
+    background-size: cover;
+}
+.portfolio-item:nth-child(3) {
+    background: url('../imgs/portfolio3.jpg');
+    background-size: cover;
+}
+.portfolio-item:nth-child(4) {
+    background: url('../imgs/portfolio4.jpg');
+    background-size: cover;
+}
+
+/*==================================
+*            ANIMATIONS            *
+==================================*/
+
+.appear {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
 }
