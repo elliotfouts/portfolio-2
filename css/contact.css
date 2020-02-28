@@ -5,12 +5,24 @@
     background: #3E92CC;
 }
 
+/* info container */
+.info-container {
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: all 300ms;
+}
+
+.contact-info {
+    margin: 2rem;
+}
 /* form */
 
 form {
     height: 100vh;
     width: 90%;
-    padding: 9rem 2rem;
+    padding: 3rem 5rem;
 }
 
 .contact-title {
@@ -47,7 +59,7 @@ form textarea {
     color: #F5F3F5;
     border: 1px solid rgba(245, 243, 245, 0);
     border-bottom: 1px solid #F5F3F5;
-    padding: 1rem;
+    padding: 1rem 0rem;
     font-size: 2rem;
     margin-bottom: 3rem;
     opacity: 0;
@@ -62,7 +74,8 @@ form textarea:focus {
 
 form textarea:focus {
     border: 1px solid rgba(245, 243, 245, 1);
-    height: 200px;
+    padding: 1rem;
+    height: 190px;
 }
 .form-button {
     background: none;
@@ -79,13 +92,15 @@ form textarea:focus {
     color: #3E92CC;
     border: 1px solid #F5F3F5;
     padding: 1rem 2rem;
+    cursor: pointer;
 }
 
 /* social media */
 
 #social-media-container {
     position: absolute;
-    top: 0; 
+    bottom: 50%;
+    transform: translateY(50%); 
     right: 0;
     display: flex;
     flex-direction: column;
@@ -105,23 +120,16 @@ form textarea:focus {
     opacity: 0;
     transform: translateX(60px);
 }
-
 .social-media-link:nth-child(1) {
-    background: #4dd667;
-}
-.social-media-link:nth-child(2) {
-    background: #b3463d;
-}
-.social-media-link:nth-child(3) {
     background: #0077b5;
 }
-.social-media-link:nth-child(4) {
+.social-media-link:nth-child(2) {
     background: #323232;
 }
-.social-media-link:nth-child(5) {
+.social-media-link:nth-child(3) {
     background: linear-gradient(45deg, #9e2bac, #f2b260);
 }
-.social-media-link:nth-child(6) {
+.social-media-link:nth-child(4) {
     background: #1da1f2;
 }
 
@@ -144,6 +152,9 @@ form textarea:focus {
 ====================---==============*/
 
 @media (max-width: 710px) {
+    form {
+        width: 100%;
+    }
     .contact-title{
         font-size: 1.5rem;
     }
@@ -153,27 +164,62 @@ form textarea:focus {
     form textarea {        
         font-size: 1.5rem;
     }
+    #social-media-container {
+        bottom: 0;
+        right: 50%;
+        transform: translateX(50%);
+        flex-direction: row;
+        padding: 0;
+    }
+    .social-media-link {
+        margin: 1rem;
+    }
+
 }
 @media (max-width: 600px) {
+    .info-container {
+        flex-direction: column;
+        padding: 2rem;
+        align-items: flex-end;
+    }
+    .contact-info {
+        margin: .3rem;
+    }
     form {
-        padding: 9rem 2rem;
-        width: 90%;
+        width: 100%;
     }
-    .social-media-container {
-        padding: .5rem;
+    .contact-title{
+        font-size: 1.3rem;
     }
+    form input {
+        font-size: 1.3rem;
+    }
+    form textarea {        
+        font-size: 1.3rem;
+    }
+}
+@media (max-width: 425px) {
+    .info-container {
+        padding-bottom: 0rem;
+    }
+    form {
+        padding: 2rem;
+        width: 100%;
+    }
+    .contact-title{
+        font-size: 1.3rem;
+    }
+    form input {
+        font-size: 1.3rem;
+    }
+    form textarea {        
+        font-size: 1.3rem;
+    }
+}
+@media (max-width: 400px) {
     .social-media-link {
         height: 35px;
         width: 35px;
         font-size: 10px;
-    }
-    .contact-title{
-        font-size: 1.3rem;
-    }
-    form input {
-        font-size: 1.3rem;
-    }
-    form textarea {        
-        font-size: 1.3rem;
     }
 }

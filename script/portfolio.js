@@ -50,13 +50,13 @@ container.addEventListener("click", function (event) {
     newLiveLink.classList.add("card-link")
     newGitLink.setAttribute("target", "blank")
     newLiveLink.setAttribute("target", "blank")
-    
     newLinkContainer.appendChild(newGitLink);
     newLinkContainer.appendChild(newLiveLink);
-
-    event.target.appendChild(newTitle)
-    event.target.appendChild(newSubtitle)
-    event.target.appendChild(newDescription)
+    newContentContainer = document.createElement("div");
+    newContentContainer.appendChild(newTitle)
+    newContentContainer.appendChild(newSubtitle)
+    newContentContainer.appendChild(newDescription)
+    event.target.appendChild(newContentContainer)
     event.target.appendChild(newLinkContainer)
 });
 
