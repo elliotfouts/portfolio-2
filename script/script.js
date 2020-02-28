@@ -45,7 +45,7 @@ function initELements () {
 setTimeout(initELements, 100);
 
 // menu transition animation 
-var htmlLinkArray = ["about.html", "resume.pdf", "portfolio.html", "contact.html"]
+var htmlLinkArray = ["index.html", "resume.pdf", "portfolio.html", "contact.html"]
 menuElement.addEventListener("click", function(target) {
     for (var i = 0; i < menuLinkArr.length; i++) {
         if (event.target == menuLinkArr[i] || event.target == menuTitleArr[i]) {

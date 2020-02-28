@@ -115,7 +115,7 @@ form textarea:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, .1);
+    box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, .1);
     transition: all 300ms;
     opacity: 0;
     transform: translateX(60px);

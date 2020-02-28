@@ -21,42 +21,45 @@ setTimeout(initElementsSpecific, 100)
 var container = document.querySelector(".container")
 
 container.addEventListener("click", function (event) {
-    for (var i = 0; i < portfolioArr.length; i++) {
-        if (portfolioArr[i].classList.contains("active")){
-            portfolioArr[i].classList.remove("active");
+    if (event.target != document.querySelector(".container")) {
+        for (var i = 0; i < portfolioArr.length; i++) {
+            if (portfolioArr[i].classList.contains("active")){
+                portfolioArr[i].classList.remove("active");
+                portfolioArr[i].innerHTML = "";
+            }
         }
-        portfolioArr[i].innerHTML = "";
+        var target = event.target;
+        console.log(target);
+        target.classList.add("active");
+        newTitle = document.createElement("h1");
+        newTitle.innerText = target.getAttribute("data-title");
+        newTitle.classList.add("card-title");
+        newSubtitle = document.createElement("h2");
+        newSubtitle.innerText = target.getAttribute("data-subtitle");
+        newSubtitle.classList.add("card-subtitle");
+        newDescription = document.createElement("p");
+        newDescription.innerText = target.getAttribute("data-description");
+        newDescription.classList.add("card-description");
+        newLinkContainer = document.createElement("div");
+        newLinkContainer.classList.add("card-link-container");
+        newGitLink = document.createElement("a");
+        newGitLink.innerText = "View Github";
+        newGitLink.setAttribute("href", target.getAttribute("data-git-link"))
+        newGitLink.classList.add("card-link")
+        newLiveLink = document.createElement("a");
+        newLiveLink.innerText = "View Live";
+        newLiveLink.setAttribute("href", target.getAttribute("data-live-link"))
+        newLiveLink.classList.add("card-link")
+        newGitLink.setAttribute("target", "blank")
+        newLiveLink.setAttribute("target", "blank")
+        newLinkContainer.appendChild(newGitLink);
+        newLinkContainer.appendChild(newLiveLink);
+        newContentContainer = document.createElement("div");
+        newContentContainer.appendChild(newTitle)
+        newContentContainer.appendChild(newSubtitle)
+        newContentContainer.appendChild(newDescription)
+        event.target.appendChild(newContentContainer)
+        event.target.appendChild(newLinkContainer)
     }
-    var target = event.target;
-    target.classList.add("active");
-    newTitle = document.createElement("h1");
-    newTitle.innerText = target.getAttribute("data-title");
-    newTitle.classList.add("card-title");
-    newSubtitle = document.createElement("h2");
-    newSubtitle.innerText = target.getAttribute("data-subtitle");
-    newSubtitle.classList.add("card-subtitle");
-    newDescription = document.createElement("p");
-    newDescription.innerText = target.getAttribute("data-description");
-    newDescription.classList.add("card-description");
-    newLinkContainer = document.createElement("div");
-    newLinkContainer.classList.add("card-link-container");
-    newGitLink = document.createElement("a");
-    newGitLink.innerText = "View Github";
-    newGitLink.setAttribute("href", target.getAttribute("data-git-link"))
-    newGitLink.classList.add("card-link")
-    newLiveLink = document.createElement("a");
-    newLiveLink.innerText = "View Live";
-    newLiveLink.setAttribute("href", target.getAttribute("data-live-link"))
-    newLiveLink.classList.add("card-link")
-    newGitLink.setAttribute("target", "blank")
-    newLiveLink.setAttribute("target", "blank")
-    newLinkContainer.appendChild(newGitLink);
-    newLinkContainer.appendChild(newLiveLink);
-    newContentContainer = document.createElement("div");
-    newContentContainer.appendChild(newTitle)
-    newContentContainer.appendChild(newSubtitle)
-    newContentContainer.appendChild(newDescription)
-    event.target.appendChild(newContentContainer)
-    event.target.appendChild(newLinkContainer)
 });
 
