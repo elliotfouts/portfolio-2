@@ -1,14 +1,14 @@
 // entrance animation
 
-var portfolioArr = document.querySelectorAll(".portfolio-item");
+var cardArr = document.querySelectorAll(".card");
 
 function initElementsSpecific() {
     var i = 0;
-    var portfolioInterval = setInterval(() => {
-        portfolioArr[i].classList.add("appear");
+    var cardInterval = setInterval(() => {
+        cardArr[i].classList.add("appear");
         i++;
-        if (i == portfolioArr.length) {
-            clearInterval(portfolioInterval)
+        if (i == cardArr.length) {
+            clearInterval(cardInterval)
         }
     }, 200);
     
@@ -22,41 +22,38 @@ var container = document.querySelector(".container")
 
 container.addEventListener("click", function (event) {
     if (event.target != document.querySelector(".container")) {
-        for (var i = 0; i < portfolioArr.length; i++) {
-            if (portfolioArr[i].classList.contains("active")){
-                portfolioArr[i].classList.remove("active");
-                portfolioArr[i].innerHTML = "";
+        for (var i = 0; i < cardArr.length; i++) {
+            if (cardArr[i].classList.contains("active")){
+                cardArr[i].classList.remove("active");
+                cardArr[i].innerHTML = "";
             }
         }
         var target = event.target;
-        console.log(target);
+        console.log(target)
         target.classList.add("active");
         newTitle = document.createElement("h1");
         newTitle.innerText = target.getAttribute("data-title");
         newTitle.classList.add("card-title");
-        newSubtitle = document.createElement("h2");
-        newSubtitle.innerText = target.getAttribute("data-subtitle");
-        newSubtitle.classList.add("card-subtitle");
         newDescription = document.createElement("p");
         newDescription.innerText = target.getAttribute("data-description");
         newDescription.classList.add("card-description");
         newLinkContainer = document.createElement("div");
-        newLinkContainer.classList.add("card-link-container");
+        newLinkContainer.classList.add("card-button-container");
         newGitLink = document.createElement("a");
-        newGitLink.innerText = "View Github";
+        newGitLink.innerText = "View Code";
         newGitLink.setAttribute("href", target.getAttribute("data-git-link"))
-        newGitLink.classList.add("card-link")
+        newGitLink.classList.add("card-button")
         newLiveLink = document.createElement("a");
         newLiveLink.innerText = "View Live";
         newLiveLink.setAttribute("href", target.getAttribute("data-live-link"))
-        newLiveLink.classList.add("card-link")
+        newLiveLink.classList.add("card-button")
         newGitLink.setAttribute("target", "blank")
         newLiveLink.setAttribute("target", "blank")
-        newLinkContainer.appendChild(newGitLink);
         newLinkContainer.appendChild(newLiveLink);
+        newLinkContainer.appendChild(newGitLink);
         newContentContainer = document.createElement("div");
+        newContentContainer.classList.add("card-content")
         newContentContainer.appendChild(newTitle)
-        newContentContainer.appendChild(newSubtitle)
         newContentContainer.appendChild(newDescription)
         event.target.appendChild(newContentContainer)
         event.target.appendChild(newLinkContainer)

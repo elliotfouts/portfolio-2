@@ -1,8 +1,22 @@
-
+let hasVisted = localStorage.getItem("hasVisited");
+let titleElement = document.querySelector("#title");
+let subtitleElement = document.querySelector("#subtitle");
+let container = document.querySelector(".container");
+console.log(hasVisted);
+if (hasVisted == null) {
+    console.log("test");
+    localStorage.setItem("hasVisited", "true");
+} else if (hasVisted == "true") {
+    titleElement.innerText = "Welcome Back!"
+    subtitleElement.innerText = "If you would like more info, click the button below";
+    let newButton = document.createElement("a");
+    newButton.classList.add("learn-more-button");
+    newButton.innerText = "Learn More"
+    container.appendChild(newButton);
+    newButton.classList.add("appear")
+}
 // typewriter animation 
 
-var titleElement = document.querySelector("#title");
-var subtitleElement = document.querySelector("#subtitle");
 var titleTextArr = titleElement.innerText.split("");
 var subtitleTextArr = subtitleElement.innerText.split("");
 

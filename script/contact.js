@@ -36,3 +36,9 @@ function initElementsSpecific () {
 }
 
 setTimeout(initElementsSpecific, 100);
+
+let formButton = document.querySelector(".form-button");
+let sendModal = document.querySelector(".send-modal")
+formButton.addEventListener("click", function(){
+    sendModal.classList.add("appear")
+})
